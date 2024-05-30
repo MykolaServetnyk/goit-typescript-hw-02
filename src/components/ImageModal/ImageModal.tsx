@@ -4,7 +4,21 @@ import { AiFillLike } from "react-icons/ai";
 
 Modal.setAppElement("#root");
 
-export default function ImageModal({ isOpen, onRequestClose, imageInfo }) {
+type ImageInfo = {
+  imageUrl: string;
+  altDescription: string;
+  imageTags: { title: string }[];
+  authorName: string;
+  likes: number;
+};
+
+type Props = {
+  isOpen: boolean;
+  onRequestClose: () => void;
+  imageInfo?: ImageInfo | null;
+};
+
+export default function ImageModal({ isOpen, onRequestClose, imageInfo }:Props) {
   const { imageUrl, altDescription, imageTags, authorName, likes } = imageInfo || {};
 
   return (

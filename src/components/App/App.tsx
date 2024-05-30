@@ -1,4 +1,3 @@
-// App.js
 import { useState, useEffect } from 'react';
 import { fetchImages } from '../../image-api';
 import SearchBar from '../SearchBar/SearchBar';
@@ -7,17 +6,17 @@ import Loader from '../Loader/Loader';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
 import LoadMoreBtn from '../LoadMoreBtn/LoadMoreBtn';
 import ImageModal from '../ImageModal/ImageModal';
-
+import {Tag, Image, SelectedImage} from "./App.types";
 import './App.css';
 
 export default function App() {
-  const [images, setImages] = useState([]);
-  const [query, setQuery] = useState("");
-  const [page, setPage] = useState(1);
-  const [loader, setLoader] = useState(false);
-  const [error, setError] = useState(false);
-  const [modalIsOpen, setIsOpen] = useState(false);
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [images, setImages] = useState<Image[]>([]);
+  const [query, setQuery] = useState<string>("");
+  const [page, setPage] = useState<number>(1);
+  const [loader, setLoader] = useState<boolean>(false);
+  const [error, setError] = useState<boolean>(false);
+  const [modalIsOpen, setIsOpen] = useState<boolean>(false);
+  const [selectedImage, setSelectedImage] = useState<SelectedImage>(null);
 
   useEffect(() => {
     if (!query) {
@@ -38,20 +37,21 @@ export default function App() {
     getImages();
   }, [query, page]);
 
-  const handleSubmit = (query) => {
+  const handleSubmit = (query: string) => {
     setQuery(query);
     setPage(1);
     setImages([]);
   };
 
   const handleLoadMore = () => {
-    setPage(page + 1);
+    setPage((prevPage) => prevPage + 1);
   };
 
-  const openModal = (imageUrl, altDescription, imageTags, authorName, likes) => {
-    setSelectedImage({ imageUrl, altDescription, imageTags, authorName, likes });
-    setIsOpen(true);
-  };
+  const openModal = (imageUrl: string, altDescription: string, imageTags: { title: string; type: string }[], authorName: string, likes: number) => {
+  setSelectedImage({ imageUrl, altDescription, imageTags, authorName, likes });
+  setIsOpen(true);
+};
+
 
   const closeModal = () => {
     setSelectedImage(null);
