@@ -1,22 +1,11 @@
 import Modal from "react-modal";
 import css from "./ImageModal.module.css";
 import { AiFillLike } from "react-icons/ai";
+import {ImageInfo,  Props} from "./ImageModal.types";
 
 Modal.setAppElement("#root");
 
-type ImageInfo = {
-  imageUrl: string;
-  altDescription: string;
-  imageTags: { title: string }[];
-  authorName: string;
-  likes: number;
-};
 
-type Props = {
-  isOpen: boolean;
-  onRequestClose: () => void;
-  imageInfo?: ImageInfo | null;
-};
 
 export default function ImageModal({ isOpen, onRequestClose, imageInfo }:Props) {
   const { imageUrl, altDescription, imageTags, authorName, likes } = imageInfo || {};
