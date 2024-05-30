@@ -26,6 +26,7 @@ export default function ImageModal({ isOpen, onRequestClose, imageInfo }:Props) 
       onRequestClose={onRequestClose}
       shouldCloseOnOverlayClick={true}
       shouldCloseOnEsc={true}
+      style = {customStyles}
       overlayClassName="Overlay"
       className="Modal"
     >
