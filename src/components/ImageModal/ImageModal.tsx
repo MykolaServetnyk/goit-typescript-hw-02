@@ -1,7 +1,7 @@
 import Modal from "react-modal";
 import css from "./ImageModal.module.css";
 import { AiFillLike } from "react-icons/ai";
-import {ImageInfo,CustomStyles,  Props} from "./ImageModal.types";
+import {CustomStyles,  Props} from "./ImageModal.types";
 
 Modal.setAppElement("#root");
 

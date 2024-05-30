@@ -1,4 +1,4 @@
-export type ImageInfo = {
+type ImageInfo = {
   imageUrl: string;
   altDescription: string;
   imageTags: { title: string }[];
