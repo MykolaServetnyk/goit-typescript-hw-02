@@ -11,3 +11,14 @@ export type Props = {
   onRequestClose: () => void;
   imageInfo?: ImageInfo | null;
 };
+
+export type CustomStyles = {
+  content: {
+    top: string;
+    left: string;
+    right: string;
+    bottom: string;
+    marginRight: string;
+    transform: string;
+  };
+};

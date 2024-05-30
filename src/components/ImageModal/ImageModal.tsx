@@ -1,10 +1,20 @@
 import Modal from "react-modal";
 import css from "./ImageModal.module.css";
 import { AiFillLike } from "react-icons/ai";
-import {ImageInfo,  Props} from "./ImageModal.types";
+import {ImageInfo,CustomStyles,  Props} from "./ImageModal.types";
 
 Modal.setAppElement("#root");
 
+const customStyles:CustomStyles = {
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+  },
+};
 
 
 export default function ImageModal({ isOpen, onRequestClose, imageInfo }:Props) {
